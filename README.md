@@ -1,4 +1,4 @@
-Role Name
+ansible_control
 =========
 
 A brief description of the role goes here.
