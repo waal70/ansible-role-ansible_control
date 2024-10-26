@@ -1,7 +1,7 @@
 ansible_control
 =========
 
-A brief description of the role goes here.
+This role prepares an instance for ansible control node
 
 Requirements
 ------------
