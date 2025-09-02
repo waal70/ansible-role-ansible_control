@@ -1,10 +1,11 @@
 ---
 # defaults file for ansible_control
+# bookworm -> jammy
+# trixie -> noble
 ansible_repository: "http://ppa.launchpad.net/ansible/ansible/ubuntu"
-ubuntu_codename: "jammy"
+ubuntu_codename: "noble"
 ansible_gpg_key_url: https://keyserver.ubuntu.com/pks/lookup?fingerprint=on&op=get&search=0x6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
 ansible_components: "main"
-
 action_install: true
 
 git_repo_playbooks: "https://github.com/waal70/home-infra.git"

@@ -34,11 +34,13 @@
 - name: Remove previously accepted host keys # noqa: command-instead-of-shell ignore-errors
   ansible.builtin.shell: "ssh-keygen -R {{ git_repo_secrets_server }}"
   become_user: "{{ interactive_user }}"
+  become: true
   ignore_errors: true
   changed_when: false
 
 - name: Hacky way to accept the host key for the internal git clone
   ansible.builtin.shell: "ssh-keyscan -p {{ git_repo_secrets_server_port }} -H {{ git_repo_secrets_server }} >> {{ interactive_home }}/.ssh/known_hosts"
+  become: true
   become_user: "{{ interactive_user }}"
   changed_when: false
 
@@ -52,4 +54,5 @@
   ansible.builtin.command:
     cmd: "sshpass -p {{ ac_admin_password }} git clone {{ git_repo_secrets }} {{ interactive_home }}/{{ repo_secrets_dir }}"
   become_user: "{{ interactive_user }}"
+  become: true
   changed_when: true
