@@ -22,6 +22,7 @@
     name:
       - ansible
       - ansible-lint
+      - python3-venv
     state: present
 
 - name: Checkout main playbook repository into home of interactive_user # noqa: latest[git]
