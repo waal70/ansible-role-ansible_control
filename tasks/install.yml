@@ -30,10 +30,10 @@
   ansible.builtin.git:
     repo: "{{ git_repo_playbooks }}"
     dest: "{{ interactive_home }}/{{ repo_playbook_dir }}"
-    become_user: "{{ interactive_user }}"
-    become: true
     accept_hostkey: true
     clone: true
+  become_user: "{{ interactive_user }}"
+  become: true
 
 - name: Remove previously accepted host keys # noqa: command-instead-of-shell ignore-errors
   ansible.builtin.shell: "ssh-keygen -R {{ git_repo_secrets_server }}"
