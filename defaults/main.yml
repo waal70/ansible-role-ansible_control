@@ -10,7 +10,7 @@ action_install: true
 
 git_repo_playbooks: "https://github.com/waal70/home-infra.git"
 repo_playbook_dir: "home-infra"
-git_repo_secrets_server: "172.16.1.2"
+git_repo_secrets_server: "172.16.10.2"
 git_repo_secrets_server_port: "8022"
 git_repo_secrets: "ssh://{{ git_repo_secrets_server }}:{{ git_repo_secrets_server_port }}/volume1/private-git/home.git"
 repo_secrets_dir: "home"

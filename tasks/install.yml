@@ -1,4 +1,15 @@
 ---
+# Emergency fix until Ansible team fixes their signing key
+# See: https://github.com/ansible-community/ppa/issues/114
+- name: Extend expiry of SHA1-signed files
+  ansible.builtin.lineinfile:
+    path: /usr/share/apt/default-sequoia.config
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - { regexp: "^sha1.second_preimage_resistance", line: "sha1.second_preimage_resistance = 2027-02-01" }
+
 - name: Add ansible repository to this server
   ansible.builtin.deb822_repository:
     name: ansible
